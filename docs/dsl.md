@@ -1,0 +1,57 @@
+---
+layout: default
+title: KHTMX DSL
+nav_order: 2
+has_children: false
+---
+
+# KHTMX DSL
+
+KHTMX DSL is a multi-platform Kotlin DSL which extends the kotlinx HTML DSL to support HTMX. It currently supports Kotlin/JVM and Kotlin/JS, but more targets are planned.
+
+### API Support
+
+| Core Attributes                                                   | Supported |
+|-------------------------------------------------------------------|-----------|
+| [`hx-get`](https://htmx.org/attributes/hx-get/)                   | ✅         |
+| [`hx-post`](https://htmx.org/attributes/hx-post/)                 | ✅         |
+| [`hx-on*`](https://htmx.org/attributes/hx-on/)                    | ❌         |
+| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)         | ✅         |
+| [`hx-select`](https://htmx.org/attributes/hx-select/)             | ❌         |
+| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/)     | ❌         |
+| [`hx-swap`](https://htmx.org/attributes/hx-swap/)                 | ✅         |
+| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)         | ❌         |
+| [`hx-target`](https://htmx.org/attributes/hx-target/)             | ✅         |
+| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)           | ✅         |
+| [`hx-vals`](https://htmx.org/attributes/hx-vals/)                 | ✅         |
+
+| Additional Attributes                                              | Supported  |
+|--------------------------------------------------------------------|------------|
+| [`hx-boost`](https://htmx.org/attributes/hx-boost/)                | ❌          |
+| [`hx-confirm`](https://htmx.org/attributes/hx-confirm/)            | ❌          |
+| [`hx-delete`](https://htmx.org/attributes/hx-delete/)              | ✅          |
+| [`hx-disable`](https://htmx.org/attributes/hx-disable/)            | ❌          |
+| [`hx-disabled-elt`](https://htmx.org/attributes/hx-disabled-elt/)  | ❌          |
+| [`hx-disinherit`](https://htmx.org/attributes/hx-disinherit/)      | ❌          |
+| [`hx-encoding`](https://htmx.org/attributes/hx-encoding/)          | ❌          |
+| [`hx-ext`](https://htmx.org/attributes/hx-ext/)                    | ❌          |
+| [`hx-headers`](https://htmx.org/attributes/hx-headers/)            | ❌          |
+| [`hx-history`](https://htmx.org/attributes/hx-history/)            | ❌          |
+| [`hx-history-elt`](https://htmx.org/attributes/hx-history-elt/)    | ❌          |
+| [`hx-include`](https://htmx.org/attributes/hx-include/)            | ❌          |
+| [`hx-indicator`](https://htmx.org/attributes/hx-indicator/)        | ❌          |
+| [`hx-inherit`](https://htmx.org/attributes/hx-inherit/)            | ❌          |
+| [`hx-params`](https://htmx.org/attributes/hx-params/)              | ✅          |
+| [`hx-patch`](https://htmx.org/attributes/hx-patch/)                | ✅          |
+| [`hx-preserve`](https://htmx.org/attributes/hx-preserve/)          | ❌          |
+| [`hx-prompt`](https://htmx.org/attributes/hx-prompt/)              | ❌          |
+| [`hx-put`](https://htmx.org/attributes/hx-put/)                    | ✅          |
+| [`hx-replace-url`](https://htmx.org/attributes/hx-replace-url/)    | ❌          |
+| [`hx-request`](https://htmx.org/attributes/hx-request/)            | ❌          |
+| [`hx-sync`](https://htmx.org/attributes/hx-sync/)                  | ❌          |
+| [`hx-validate`](https://htmx.org/attributes/hx-validate/)          | ❌          |
+| [`hx-vars`](https://htmx.org/attributes/hx-vars/)                  | ❌          |
+
+| HTMX Features                                       | Supported  |
+|-----------------------------------------------------|------------|
+| [Configuration](https://htmx.org/reference/#config) | ❌          |

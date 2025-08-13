@@ -1,0 +1,74 @@
+import org.jreleaser.model.Active
+
+plugins {
+    base
+    id("jacoco-report-aggregation")
+    id("org.jreleaser") version ("1.13.1")
+}
+project.description = "A multiplatform kotlin DSL for HTMX"
+tasks.wrapper {
+    gradleVersion = "9.0.0"
+    distributionType = Wrapper.DistributionType.BIN
+}
+allprojects {
+    group = "io.github.wakingrufus"
+}
+
+dependencies {
+    subprojects.forEach {
+        jacocoAggregation(project(":" + it.name))
+    }
+}
+reporting {
+    reports {
+        val testCodeCoverageReport by creating(JacocoCoverageReport::class)
+    }
+}
+jreleaser {
+    signing {
+        active = Active.ALWAYS
+        armored = true
+        publicKey = System.getenv("PUBLIC_KEY")
+        secretKey = System.getenv("PRIVATE_KEY")
+        passphrase = System.getenv("PASSPHRASE")
+    }
+    release {
+        github {
+            repoOwner = "wakingrufus"
+            host = "github.com"
+            username = "wakingrufus"
+            apiEndpoint = "https://api.github.com"
+            token = System.getenv("GITHUB_TOKEN")
+            enabled = true
+            releaseName = "{{tagName}}"
+            releaseNotes {
+                enabled = true
+            }
+            changelog {
+                enabled = false
+            }
+            skipTag = true
+            sign = false
+        }
+    }
+    deploy {
+        maven {
+            mavenCentral {
+                create("sonatype") {
+                    active = Active.ALWAYS
+                    url = "https://central.sonatype.com/api/v1/publisher"
+                    stagingRepository("build/staging-deploy")
+                    applyMavenCentralRules = true
+                    username = System.getenv("SONATYPE_USER")
+                    password = System.getenv("SONATYPE_PASS")
+                    namespace.set("io.github.wakingrufus")
+                    retryDelay = 30
+                    maxRetries = 100
+                }
+            }
+        }
+    }
+}
+project.tasks.named("jreleaserFullRelease") {
+    dependsOn(subprojects.map { it.tasks.named("publish") })
+}
