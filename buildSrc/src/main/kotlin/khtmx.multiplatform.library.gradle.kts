@@ -1,6 +1,9 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 plugins {
     `maven-publish`
     kotlin("multiplatform")
+    jacoco
 }
 repositories {
     mavenCentral()
@@ -14,10 +17,11 @@ publishing {
 }
 
 kotlin {
-//    compilerOptions {
-//        languageVersion.set(KotlinVersion.KOTLIN_2_0)
-//        apiVersion.set(KotlinVersion.KOTLIN_2_0)
-//    }
+    jvmToolchain(11)
+    compilerOptions {
+        languageVersion.set(KotlinVersion.KOTLIN_2_0)
+        apiVersion.set(KotlinVersion.KOTLIN_2_0)
+    }
     jvm {
         mavenPublication {
             groupId = group as String
@@ -75,4 +79,19 @@ kotlin {
             }
         }
     }
+}
+val jacocoReport = tasks.register("jacocoTestReport", JacocoReport::class) {
+    dependsOn(tasks.withType(Test::class))
+    sourceDirectories.setFrom(  listOf("src/commonMain/kotlin", "src/jvmMain/kotlin"))
+    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm")))
+    executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
+}
+
+tasks.withType<Test> {
+    testLogging {
+        info {
+            events("passed", "skipped", "failed")
+        }
+    }
+    finalizedBy(jacocoReport)
 }

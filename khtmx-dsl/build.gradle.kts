@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-
 plugins {
     khtmx.multiplatform.library
 }
@@ -7,10 +5,6 @@ plugins {
 project.description = "A multiplatform kotlin DSL for HTMX"
 
 kotlin {
-    compilerOptions {
-        languageVersion.set(KotlinVersion.KOTLIN_2_0)
-        apiVersion.set(KotlinVersion.KOTLIN_2_0)
-    }
     sourceSets {
         commonMain {
             dependencies {
@@ -20,6 +14,7 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test-common"))
+                implementation(kotlin("test"))
             }
         }
         jvmMain {
@@ -40,21 +35,3 @@ kotlin {
     }
 }
 
-kotlin {
-    jvmToolchain(11)
-
-    sourceSets {
-        commonTest {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
-    }
-}
-tasks.withType<Test> {
-    testLogging {
-        info {
-            events("passed", "skipped", "failed")
-        }
-    }
-}

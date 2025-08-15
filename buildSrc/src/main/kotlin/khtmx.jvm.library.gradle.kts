@@ -2,15 +2,14 @@ plugins {
     `java-library`
     `jvm-test-suite`
     jacoco
-    id("jacoco-report-aggregation")
     `maven-publish`
     kotlin("jvm")
 }
 repositories {
     mavenCentral()
 }
-project.tasks.named("build") {
-    dependsOn("jacocoTestReport")
+project.tasks.named("test") {
+    finalizedBy("jacocoTestReport")
 }
 
 testing {

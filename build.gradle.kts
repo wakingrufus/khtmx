@@ -21,11 +21,23 @@ dependencies {
         jacocoAggregation(project(":" + it.name))
     }
 }
+
 reporting {
     reports {
-        val testCodeCoverageReport by creating(JacocoCoverageReport::class)
+        val javaCodeCoverageReport by creating(JacocoCoverageReport::class){
+            testSuiteName = "test"
+        }
+
+        // hack to get jacoco aggregate to work with KMM
+        afterEvaluate{
+            javaCodeCoverageReport.reportTask.get().apply {
+                dependsOn(":khtmx-dsl:jacocoTestReport")
+                executionData(executionData.plus(file("khtmx-dsl/build/jacoco/jvmTest.exec")))
+            }
+        }
     }
 }
+
 jreleaser {
     signing {
         active = Active.ALWAYS
