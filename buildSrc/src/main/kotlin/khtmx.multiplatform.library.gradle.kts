@@ -4,16 +4,10 @@ plugins {
     `maven-publish`
     kotlin("multiplatform")
     jacoco
+    id("org.jlleitschuh.gradle.ktlint")
 }
 repositories {
     mavenCentral()
-}
-publishing {
-    repositories {
-        maven {
-            url = rootProject.layout.buildDirectory.dir("staging-deploy").get().asFile.toURI()
-        }
-    }
 }
 
 kotlin {

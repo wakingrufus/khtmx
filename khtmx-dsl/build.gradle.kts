@@ -1,5 +1,6 @@
 plugins {
     khtmx.multiplatform.library
+    khtmx.publish.staging
 }
 
 project.description = "A multiplatform kotlin DSL for HTMX"
@@ -34,4 +35,3 @@ kotlin {
         }
     }
 }
-

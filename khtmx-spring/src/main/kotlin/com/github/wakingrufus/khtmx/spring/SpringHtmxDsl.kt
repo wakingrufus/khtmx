@@ -4,19 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.wakingrufus.htmx.HtmxDsl
 import com.github.wakingrufus.htmx.HttpVerb
 import com.github.wakingrufus.htmx.template.HtmxTemplate
-import com.github.wakingrufus.khtmx.spring.route.HxRoute
-import com.github.wakingrufus.khtmx.spring.route.noParam
-import com.github.wakingrufus.khtmx.spring.route.withAuth
-import com.github.wakingrufus.khtmx.spring.route.withParam
-import com.github.wakingrufus.khtmx.spring.route.withParamAndAuth
-import kotlinx.html.BODY
-import kotlinx.html.TagConsumer
-import kotlinx.html.body
+import com.github.wakingrufus.khtmx.spring.route.*
+import kotlinx.html.*
 import kotlinx.html.dom.createHTMLDocument
 import kotlinx.html.dom.serialize
-import kotlinx.html.head
-import kotlinx.html.html
-import kotlinx.html.script
 import org.springframework.beans.factory.BeanRegistrarDsl
 import org.springframework.beans.factory.BeanRegistry
 import org.springframework.beans.factory.ObjectProvider
@@ -28,11 +19,11 @@ import org.springframework.web.servlet.function.router
 import java.security.Principal
 
 @HtmxDsl
-open class SpringHtmxDsl(init:  SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({})  {
+open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) {
     val pages = ArrayList<HtmxPage>()
     internal var routes: MutableList<HxRoute> = mutableListOf()
 
-    inline fun <reified T : Any> getBean() :  (SupplierContextDsl<*>) -> ObjectProvider<T>  = {
+    inline fun <reified T : Any> getBean(): (SupplierContextDsl<*>) -> ObjectProvider<T> = {
         it.beanProvider<T>()
     }
 
@@ -44,13 +35,13 @@ open class SpringHtmxDsl(init:  SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({})
         super.register(registry, env)
         registerBean("khtmxSpring") {
             router {
-                this@SpringHtmxDsl.registerRoutes(this@registerBean,this)
+                this@SpringHtmxDsl.registerRoutes(this@registerBean, this)
             }
         }
     }
 
     @HtmxDsl
-    fun page(path: String, template : BODY.() -> Unit = {}) {
+    fun page(path: String, template: BODY.() -> Unit = {}) {
         pages.add(HtmxPage(path).apply { initialLoad(template) })
     }
 
