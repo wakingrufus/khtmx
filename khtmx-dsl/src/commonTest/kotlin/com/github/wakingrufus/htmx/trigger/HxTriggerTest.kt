@@ -13,7 +13,6 @@ class HxTriggerTest {
         assertEquals(actual(), "every 10s")
     }
 
-
     @Test
     fun test_standard_event() {
         val actual = HxTriggerDsl().apply {

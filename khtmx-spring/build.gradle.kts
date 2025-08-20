@@ -1,5 +1,5 @@
 plugins {
-    khtmx.jvm.library
+    khtmx.jvm
 }
 
 dependencies {

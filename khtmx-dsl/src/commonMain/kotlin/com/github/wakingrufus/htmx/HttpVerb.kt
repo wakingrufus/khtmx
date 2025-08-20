@@ -5,5 +5,5 @@ enum class HttpVerb(val attrName: String) {
     POST("post"),
     PUT("put"),
     PATCH("patch"),
-    DELETE("delete"),
+    DELETE("delete")
 }

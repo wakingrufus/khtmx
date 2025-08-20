@@ -10,7 +10,5 @@ class IntersectDsl {
         events.add(com.github.wakingrufus.htmx.AttributeModifier("threshold", amt.toString()))
     }
 
-    operator fun invoke(): com.github.wakingrufus.htmx.trigger.HxTriggerEvent.Intersect {
-        return com.github.wakingrufus.htmx.trigger.HxTriggerEvent.Intersect(events)
-    }
+    operator fun invoke(): HxTriggerEvent.Intersect = HxTriggerEvent.Intersect(events)
 }

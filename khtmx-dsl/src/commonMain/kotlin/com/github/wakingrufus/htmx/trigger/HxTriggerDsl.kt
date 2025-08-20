@@ -32,7 +32,5 @@ class HxTriggerDsl {
         events.add(IntersectDsl().apply(dsl)())
     }
 
-    operator fun invoke(): HxTrigger {
-        return HxTrigger(events)
-    }
+    operator fun invoke(): HxTrigger = HxTrigger(events)
 }

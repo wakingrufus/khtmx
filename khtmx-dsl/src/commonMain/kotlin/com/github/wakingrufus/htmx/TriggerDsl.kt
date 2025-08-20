@@ -23,10 +23,7 @@ class TriggerDsl(val verb: HttpVerb, val path: String) {
     var hxSelect: String? = null
 
     @HtmxDsl
-    fun swap(
-        type: HxSwapType,
-        dsl: HxSwapDsl.() -> Unit = {}
-    ) {
+    fun swap(type: HxSwapType, dsl: HxSwapDsl.() -> Unit = {}) {
         swap = HxSwapDsl(type).apply(dsl)()
     }
 

@@ -5,7 +5,6 @@ import com.github.wakingrufus.htmx.TriggerDsl
 import com.github.wakingrufus.htmx.swap.HxSwapType
 import kotlinx.html.div
 import kotlinx.html.stream.appendHTML
-
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

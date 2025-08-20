@@ -28,7 +28,5 @@ class HxSwapDsl(val type: HxSwapType) {
         modifiers.add(com.github.wakingrufus.htmx.AttributeModifier("ignoreTitle", enabled.toString()))
     }
 
-    operator fun invoke(): HxSwap {
-        return HxSwap(type, modifiers)
-    }
+    operator fun invoke(): HxSwap = HxSwap(type, modifiers)
 }

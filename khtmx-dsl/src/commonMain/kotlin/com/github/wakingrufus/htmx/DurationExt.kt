@@ -4,10 +4,8 @@ import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
 val OneSecond = 1.seconds
-fun Duration.toHtmx(): String{
-    return if(this < com.github.wakingrufus.htmx.OneSecond){
-        "${this.inWholeMilliseconds}ms"
-    } else {
-        "${this.inWholeSeconds}s"
-    }
+fun Duration.toHtmx(): String = if (this < OneSecond) {
+    "${this.inWholeMilliseconds}ms"
+} else {
+    "${this.inWholeSeconds}s"
 }
