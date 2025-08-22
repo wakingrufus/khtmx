@@ -9,6 +9,62 @@ has_children: false
 
 KHTMX DSL is a multi-platform Kotlin DSL which extends the kotlinx HTML DSL to support HTMX. It currently supports Kotlin/JVM and Kotlin/JS, but more targets are planned.
 
+For example, in Kotlin/JVM, it provides extensions which can be used seamlesslyy within the HTML DSL:
+```kotlin
+createHTMLDocument().html {  
+    head {  
+    }    
+    body {  
+        span {  
+		    hxGet("/path")  
+		}
+    }  
+}
+```
+
+A pure-kotlin (common) usage can look like:
+```kotlin
+buildString {  
+    appendHTML(false).apply {  
+        span {  
+            hxGet("/path")  
+        }  
+    }
+}
+```
+
+#### Templates
+
+Templates can be declared to facilitate reuse. The htmxTemplate function of type T when is a higher-order function that produces a function which takes a single parameter T and allows you to use it in an html/htmx snippet. For example:
+
+```kotlin
+val template = htmxTemplate<String> {  
+    span {  
+        +it  
+    }
+}  
+val output = buildString {  
+    appendHTML(false).apply {  
+        template.render(this, "Hello")  
+    }  
+}
+```
+
+Templates can be composed.
+
+```kotlin
+val itemTemplate = htmxTemplate<String> {
+    li { +it }
+}
+val listTemplate = htmxTemplate<List<String>> {
+    ul {
+        it.forEach {
+            template(itemTemplate, it)
+        }
+    }
+}
+```
+
 ### API Support
 
 | Core Attributes                                                   | Supported |
