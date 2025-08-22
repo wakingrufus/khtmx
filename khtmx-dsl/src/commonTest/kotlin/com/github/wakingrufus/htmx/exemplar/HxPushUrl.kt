@@ -5,6 +5,9 @@ import kotlinx.html.div
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+/**
+ * Replicates the HTMX example for [hx-push-url](https://htmx.org/attributes/hx-push-url/)
+ */
 class HxPushUrl {
     @Test
     fun hxPushUrl_true() {
@@ -15,7 +18,7 @@ class HxPushUrl {
                 }
             }
         }
-        assertEquals(actual, """<div hx-get="/account" hx-push-url="true"></div>""")
+        assertEquals("""<div hx-get="/account" hx-push-url="true"></div>""", actual)
     }
 
     @Test
@@ -27,6 +30,6 @@ class HxPushUrl {
                 }
             }
         }
-        assertEquals(actual, """<div hx-get="/account" hx-push-url="/account/home"></div>""")
+        assertEquals("""<div hx-get="/account" hx-push-url="/account/home"></div>""", actual)
     }
 }
