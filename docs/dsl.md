@@ -15,9 +15,9 @@ createHTMLDocument().html {
     head {  
     }    
     body {  
-        span {  
-		    hxGet("/path")  
-		}
+        span {
+            hxGet("/path")
+        }
     }  
 }
 ```
@@ -67,19 +67,19 @@ val listTemplate = htmxTemplate<List<String>> {
 
 ### API Support
 
-| Core Attributes                                                   | Supported |
-|-------------------------------------------------------------------|-----------|
-| [`hx-get`](https://htmx.org/attributes/hx-get/)                   | ✅         |
-| [`hx-post`](https://htmx.org/attributes/hx-post/)                 | ✅         |
-| [`hx-on*`](https://htmx.org/attributes/hx-on/)                    | ❌         |
-| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)         | ✅         |
-| [`hx-select`](https://htmx.org/attributes/hx-select/)             | ❌         |
-| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/)     | ❌         |
-| [`hx-swap`](https://htmx.org/attributes/hx-swap/)                 | ✅         |
-| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)         | ❌         |
-| [`hx-target`](https://htmx.org/attributes/hx-target/)             | ✅         |
-| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)           | ✅         |
-| [`hx-vals`](https://htmx.org/attributes/hx-vals/)                 | ✅         |
+| Core Attributes                                               | Supported | Example                                                                                                                                  |
+| ------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [`hx-get`](https://htmx.org/attributes/hx-get/)               | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxGet.kt)  |
+| [`hx-post`](https://htmx.org/attributes/hx-post/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPost.kt) |
+| [`hx-on*`](https://htmx.org/attributes/hx-on/)                | ❌         |                                                                                                                                          |
+| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)     | ✅         |                                                                                                                                          |
+| [`hx-select`](https://htmx.org/attributes/hx-select/)         | ❌         |                                                                                                                                          |
+| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/) | ❌         |                                                                                                                                          |
+| [`hx-swap`](https://htmx.org/attributes/hx-swap/)             | ✅         |                                                                                                                                          |
+| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)     | ❌         |                                                                                                                                          |
+| [`hx-target`](https://htmx.org/attributes/hx-target/)         | ✅         |                                                                                                                                          |
+| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         |                                                                                                                                          |
+| [`hx-vals`](https://htmx.org/attributes/hx-vals/)             | ✅         |                                                                                                                                          |
 
 | Additional Attributes                                              | Supported  |
 |--------------------------------------------------------------------|------------|

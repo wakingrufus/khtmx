@@ -12,12 +12,20 @@ class TriggerDsl(val verb: HttpVerb, val path: String) {
     private var swap: HxSwap? = null
     private var trigger: HxTrigger? = null
     private var hxParams: String? = null
+    private var hxPushUrl: String? = null
 
     @HtmxDsl
     var target: String? = null
 
     @HtmxDsl
-    var hxPushUrl: Boolean? = null
+    fun hxPushUrl(customUrl: String) {
+        hxPushUrl = customUrl
+    }
+
+    @HtmxDsl
+    fun hxPushUrl(enabled: Boolean) {
+        hxPushUrl = enabled.toString()
+    }
 
     @HtmxDsl
     var hxSelect: String? = null
@@ -58,7 +66,7 @@ class TriggerDsl(val verb: HttpVerb, val path: String) {
             swap?.let { hxSwap(it()) }
             trigger?.let { attributes["hx-trigger"] = it() }
             target?.let { hxTarget(it) }
-            hxPushUrl?.let { hxPushUrl(it) }
+            hxPushUrl?.let { this.hxPushUrl(it) }
             hxSelect?.let { hxSelect(it) }
             hxParams?.let { hxParams(it) }
         }
