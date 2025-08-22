@@ -23,31 +23,6 @@ class HtmxTemplateTest {
         assertEquals(output, "<span>Hello</span>")
     }
 
-//    @Test
-//    fun test_document() {
-//        val template = htmxTemplate<String> {
-//            span {
-//                +it
-//            }
-//        }
-//
-//        val output = createHTMLDocument().html {
-//            head {
-//            }
-//            body {
-//                template.render(consumer, "Hello")
-//            }
-//        }.serialize(false)
-//        assertThat(output)
-//            .isEqualTo(
-//                "<!DOCTYPE html>\n" +
-//                        "<html>" +
-//                        "<head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head>" +
-//                        "<body><span>Hello</span></body>" +
-//                        "</html>"
-//            )
-//    }
-
     @Test
     fun test_composable() {
         val itemTemplate = htmxTemplate<String> {
