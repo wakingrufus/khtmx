@@ -9,7 +9,8 @@ has_children: false
 
 KHTMX DSL is a multi-platform Kotlin DSL which extends the kotlinx HTML DSL to support HTMX. It currently supports Kotlin/JVM and Kotlin/JS, but more targets are planned.
 
-For example, in Kotlin/JVM, it provides extensions which can be used seamlesslyy within the HTML DSL:
+## Getting Started
+The DSL library provides extensions which can be used seamlessly within the HTML DSL. For example, in Kotlin/JVM:
 ```kotlin
 createHTMLDocument().html {  
     head {  
@@ -33,7 +34,7 @@ buildString {
 }
 ```
 
-#### Templates
+### Templates
 
 Templates can be declared to facilitate reuse. The htmxTemplate function of type T when is a higher-order function that produces a function which takes a single parameter T and allows you to use it in an html/htmx snippet. For example:
 
@@ -65,21 +66,21 @@ val listTemplate = htmxTemplate<List<String>> {
 }
 ```
 
-### API Support
+## API Support
 
-| Core Attributes                                               | Supported | Example                                                                                                                                  |
-| ------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [`hx-get`](https://htmx.org/attributes/hx-get/)               | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxGet.kt)  |
-| [`hx-post`](https://htmx.org/attributes/hx-post/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPost.kt) |
-| [`hx-on*`](https://htmx.org/attributes/hx-on/)                | ❌         |                                                                                                                                          |
-| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)     | ✅         |                                                                                                                                          |
-| [`hx-select`](https://htmx.org/attributes/hx-select/)         | ❌         |                                                                                                                                          |
-| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/) | ❌         |                                                                                                                                          |
-| [`hx-swap`](https://htmx.org/attributes/hx-swap/)             | ✅         |                                                                                                                                          |
-| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)     | ❌         |                                                                                                                                          |
-| [`hx-target`](https://htmx.org/attributes/hx-target/)         | ✅         |                                                                                                                                          |
-| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         |                                                                                                                                          |
-| [`hx-vals`](https://htmx.org/attributes/hx-vals/)             | ✅         |                                                                                                                                          |
+| Core Attributes                                               | Supported | Example                                                                                                                                     |
+| ------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`hx-get`](https://htmx.org/attributes/hx-get/)               | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxGet.kt)     |
+| [`hx-post`](https://htmx.org/attributes/hx-post/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPost.kt)    |
+| [`hx-on*`](https://htmx.org/attributes/hx-on/)                | ❌         |                                                                                                                                             |
+| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)     | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPushUrl.kt) |
+| [`hx-select`](https://htmx.org/attributes/hx-select/)         | ❌         |                                                                                                                                             |
+| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/) | ❌         |                                                                                                                                             |
+| [`hx-swap`](https://htmx.org/attributes/hx-swap/)             | ✅         |                                                                                                                                             |
+| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)     | ❌         |                                                                                                                                             |
+| [`hx-target`](https://htmx.org/attributes/hx-target/)         | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTarget.kt)  |
+| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         |                                                                                                                                             |
+| [`hx-vals`](https://htmx.org/attributes/hx-vals/)             | ✅         |                                                                                                                                             |
 
 | Additional Attributes                                              | Supported  |
 |--------------------------------------------------------------------|------------|

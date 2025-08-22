@@ -1,19 +1,17 @@
-package com.github.wakingrufus.htmx.trigger
+package com.github.wakingrufus.htmx
 
-import com.github.wakingrufus.htmx.HttpVerb
-import com.github.wakingrufus.htmx.TriggerDsl
 import com.github.wakingrufus.htmx.swap.HxSwapType
 import kotlinx.html.div
 import kotlinx.html.stream.appendHTML
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TriggerDslTest {
+class HxDslTest {
     @Test
     fun test_default_params() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/")(this)
+                HxDsl(HttpVerb.GET, "/")(this)
             }
         }
         assertEquals(actual, """<div hx-get="/"></div>""")
@@ -23,7 +21,7 @@ class TriggerDslTest {
     fun test_no_params() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
+                HxDsl(HttpVerb.GET, "/").apply {
                     noParams()
                 }(this)
             }
@@ -35,7 +33,7 @@ class TriggerDslTest {
     fun test_all_params() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
+                HxDsl(HttpVerb.GET, "/").apply {
                     allParams()
                 }(this)
             }
@@ -47,7 +45,7 @@ class TriggerDslTest {
     fun test_include_params() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
+                HxDsl(HttpVerb.GET, "/").apply {
                     includeParams("1", "2")
                 }(this)
             }
@@ -59,7 +57,7 @@ class TriggerDslTest {
     fun test_exclude_params() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
+                HxDsl(HttpVerb.GET, "/").apply {
                     excludeParams("1", "2")
                 }(this)
             }
@@ -71,8 +69,8 @@ class TriggerDslTest {
     fun test_target() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
-                    target = "body"
+                HxDsl(HttpVerb.GET, "/").apply {
+                    hxTarget("body")
                 }(this)
             }
         }
@@ -83,7 +81,7 @@ class TriggerDslTest {
     fun test_push_url() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
+                HxDsl(HttpVerb.GET, "/").apply {
                     hxPushUrl(true)
                 }(this)
             }
@@ -95,8 +93,8 @@ class TriggerDslTest {
     fun test_swap() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
-                    swap(HxSwapType.OuterHtml)
+                HxDsl(HttpVerb.GET, "/").apply {
+                    hxSwap(HxSwapType.OuterHtml)
                 }(this)
             }
         }
@@ -107,7 +105,7 @@ class TriggerDslTest {
     fun test_select() {
         val actual = buildString {
             appendHTML(false).div {
-                TriggerDsl(HttpVerb.GET, "/").apply {
+                HxDsl(HttpVerb.GET, "/").apply {
                     hxSelect = "#id"
                 }(this)
             }

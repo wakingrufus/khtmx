@@ -3,8 +3,8 @@ package com.github.wakingrufus.htmx
 import kotlinx.html.HTMLTag
 
 @HtmxDsl
-fun HTMLTag.hxTrigger(verb: HttpVerb, path: String, dsl: TriggerDsl.() -> Unit = {}) {
-    TriggerDsl(verb, path).apply(dsl).invoke(this)
+fun HTMLTag.hx(verb: HttpVerb, path: String, dsl: HxDsl.() -> Unit = {}) {
+    HxDsl(verb, path).apply(dsl).invoke(this)
 }
 
 @HtmxDsl
@@ -43,28 +43,28 @@ fun HTMLTag.hxVals(json: String) {
 }
 
 @HtmxDsl
-fun HTMLTag.hxPost(path: String, dsl: TriggerDsl.() -> Unit = {}) {
-    hxTrigger(HttpVerb.POST, path, dsl)
+fun HTMLTag.hxPost(path: String, dsl: HxDsl.() -> Unit = {}) {
+    hx(HttpVerb.POST, path, dsl)
 }
 
 @HtmxDsl
-fun HTMLTag.hxGet(path: String, dsl: TriggerDsl.() -> Unit = {}) {
-    hxTrigger(HttpVerb.GET, path, dsl)
+fun HTMLTag.hxGet(path: String, dsl: HxDsl.() -> Unit = {}) {
+    hx(HttpVerb.GET, path, dsl)
 }
 
 @HtmxDsl
-fun HTMLTag.hxPut(path: String, dsl: TriggerDsl.() -> Unit = {}) {
-    hxTrigger(HttpVerb.PUT, path, dsl)
+fun HTMLTag.hxPut(path: String, dsl: HxDsl.() -> Unit = {}) {
+    hx(HttpVerb.PUT, path, dsl)
 }
 
 @HtmxDsl
-fun HTMLTag.hxPatch(path: String, dsl: TriggerDsl.() -> Unit = {}) {
-    hxTrigger(HttpVerb.PATCH, path, dsl)
+fun HTMLTag.hxPatch(path: String, dsl: HxDsl.() -> Unit = {}) {
+    hx(HttpVerb.PATCH, path, dsl)
 }
 
 @HtmxDsl
-fun HTMLTag.hxDelete(path: String, dsl: TriggerDsl.() -> Unit = {}) {
-    hxTrigger(HttpVerb.DELETE, path, dsl)
+fun HTMLTag.hxDelete(path: String, dsl: HxDsl.() -> Unit = {}) {
+    hx(HttpVerb.DELETE, path, dsl)
 }
 
 @HtmxDsl
