@@ -76,8 +76,8 @@ kotlin {
 }
 val jacocoReport = tasks.register("jacocoTestReport", JacocoReport::class) {
     dependsOn(tasks.withType(Test::class))
-    sourceDirectories.setFrom(  listOf("src/commonMain/kotlin", "src/jvmMain/kotlin"))
-    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm")))
+    sourceDirectories.setFrom(listOf("src/commonMain/kotlin", "src/jvmMain/kotlin"))
+    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm/main")))
     executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
 }
 

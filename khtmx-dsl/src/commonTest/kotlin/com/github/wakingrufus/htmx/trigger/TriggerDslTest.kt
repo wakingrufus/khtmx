@@ -84,7 +84,7 @@ class TriggerDslTest {
         val actual = buildString {
             appendHTML(false).div {
                 TriggerDsl(HttpVerb.GET, "/").apply {
-                    hxPushUrl = true
+                    hxPushUrl(true)
                 }(this)
             }
         }

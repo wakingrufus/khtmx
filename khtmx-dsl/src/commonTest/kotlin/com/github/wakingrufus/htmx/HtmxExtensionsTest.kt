@@ -1,18 +1,17 @@
 package com.github.wakingrufus.htmx
 
+import com.github.wakingrufus.htmx.exemplar.htmxExample
+import kotlinx.html.div
 import kotlinx.html.span
-import kotlinx.html.stream.appendHTML
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class HtmxExtensionsTest {
     @Test
     fun test_hxGet() {
-        val actual = buildString {
-            appendHTML(false).apply {
-                span {
-                    hxGet("/path")
-                }
+        val actual = htmxExample {
+            span {
+                hxGet("/path")
             }
         }
         assertEquals(actual, """<span hx-get="/path"></span>""")
@@ -20,11 +19,9 @@ internal class HtmxExtensionsTest {
 
     @Test
     fun test_hxPost() {
-        val actual = buildString {
-            appendHTML(false).apply {
-                span {
-                    hxPost("/path")
-                }
+        val actual = htmxExample {
+            span {
+                hxPost("/path")
             }
         }
         assertEquals(actual, """<span hx-post="/path"></span>""")
@@ -32,11 +29,9 @@ internal class HtmxExtensionsTest {
 
     @Test
     fun test_hxPut() {
-        val actual = buildString {
-            appendHTML(false).apply {
-                span {
-                    hxPut("/path")
-                }
+        val actual = htmxExample {
+            span {
+                hxPut("/path")
             }
         }
         assertEquals(actual, """<span hx-put="/path"></span>""")
@@ -44,11 +39,9 @@ internal class HtmxExtensionsTest {
 
     @Test
     fun test_hxPatch() {
-        val actual = buildString {
-            appendHTML(false).apply {
-                span {
-                    hxPatch("/path")
-                }
+        val actual = htmxExample {
+            span {
+                hxPatch("/path")
             }
         }
         assertEquals(actual, """<span hx-patch="/path"></span>""")
@@ -56,13 +49,21 @@ internal class HtmxExtensionsTest {
 
     @Test
     fun test_hxDelete() {
-        val actual = buildString {
-            appendHTML(false).apply {
-                span {
-                    hxDelete("/path")
-                }
+        val actual = htmxExample {
+            span {
+                hxDelete("/path")
             }
         }
         assertEquals(actual, """<span hx-delete="/path"></span>""")
+    }
+
+    @Test
+    fun test_hxPushUrl() {
+        val actual = htmxExample {
+            div {
+                hxPushUrl(true)
+            }
+        }
+        assertEquals(actual, """<div hx-push-url="true"></div>""")
     }
 }

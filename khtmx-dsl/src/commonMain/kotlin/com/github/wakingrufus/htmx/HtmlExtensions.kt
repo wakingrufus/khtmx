@@ -23,6 +23,11 @@ fun HTMLTag.hxPushUrl(value: Boolean) {
 }
 
 @HtmxDsl
+fun HTMLTag.hxPushUrl(value: String) {
+    attributes["hx-push-url"] = value
+}
+
+@HtmxDsl
 fun HTMLTag.hxSwap(value: String) {
     attributes["hx-swap"] = value
 }
