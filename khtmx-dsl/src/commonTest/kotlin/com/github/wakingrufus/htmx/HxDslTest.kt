@@ -94,7 +94,9 @@ class HxDslTest {
         val actual = buildString {
             appendHTML(false).div {
                 HxDsl(HttpVerb.GET, "/").apply {
-                    hxSwap(HxSwapType.OuterHtml)
+                    hxSwap {
+                        style(HxSwapType.OuterHtml)
+                    }
                 }(this)
             }
         }

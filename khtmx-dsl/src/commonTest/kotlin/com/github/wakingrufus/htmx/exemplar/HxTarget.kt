@@ -1,7 +1,6 @@
 package com.github.wakingrufus.htmx.exemplar
 
 import com.github.wakingrufus.htmx.hxPost
-import com.github.wakingrufus.htmx.hxSwap
 import com.github.wakingrufus.htmx.swap.HxSwapType
 import kotlinx.html.button
 import kotlinx.html.div
@@ -23,7 +22,9 @@ class HxTarget {
                 button {
                     hxPost("/register") {
                         hxTarget("#response-div")
-                        hxSwap(HxSwapType.BeforeEnd)
+                        hxSwap {
+                            style(HxSwapType.BeforeEnd)
+                        }
                     }
                     +"Register!"
                 }
@@ -48,7 +49,9 @@ class HxTarget {
                         hxTarget {
                             `this`()
                         }
-                        hxSwap(HxSwapType.OuterHtml)
+                        hxSwap {
+                            style(HxSwapType.OuterHtml)
+                        }
                     }
                     +"New link"
                 }

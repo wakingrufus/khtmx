@@ -16,6 +16,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test"))
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-css:2025.8.18")
             }
         }
         jvmMain {
@@ -26,11 +27,17 @@ kotlin {
         jvmTest {
             dependencies {
                 implementation("org.assertj:assertj-core:3.27.3")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:2025.8.18")
             }
         }
         jsMain {
             dependencies {
                 api("org.jetbrains.kotlinx:kotlinx-html-js:0.12.0")
+            }
+        }
+        jsTest {
+            dependencies {
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-css-js:2025.8.18")
             }
         }
     }
