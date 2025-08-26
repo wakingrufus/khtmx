@@ -2,7 +2,6 @@ package com.github.wakingrufus.htmx
 
 import com.github.wakingrufus.htmx.swap.HxSwap
 import com.github.wakingrufus.htmx.swap.HxSwapDsl
-import com.github.wakingrufus.htmx.swap.HxSwapType
 import com.github.wakingrufus.htmx.target.SelectorDsl
 import com.github.wakingrufus.htmx.trigger.HxTrigger
 import com.github.wakingrufus.htmx.trigger.HxTriggerDsl
@@ -40,8 +39,8 @@ class HxDsl(val verb: HttpVerb, val path: String) {
     var hxSelect: String? = null
 
     @HtmxDsl
-    fun hxSwap(type: HxSwapType, dsl: HxSwapDsl.() -> Unit = {}) {
-        swap = HxSwapDsl(type).apply(dsl)()
+    fun hxSwap(dsl: HxSwapDsl.() -> Unit = {}) {
+        swap = HxSwapDsl().apply(dsl)()
     }
 
     @HtmxDsl

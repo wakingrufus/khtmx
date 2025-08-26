@@ -12,7 +12,7 @@ sealed class HxTriggerEvent(open val name: String) {
 
     class StandardEvent(override val name: String, private val modifiers: List<AttributeModifier> = emptyList()) :
         HxTriggerEvent(name) {
-        override fun invoke(): String = "$name " + modifiers.joinToString(" ") { it() }
+        override fun invoke(): String = "$name " + modifiers.joinToString(" ") { it.value }
     }
 
     object Load : HxTriggerEvent("load") {
@@ -24,6 +24,6 @@ sealed class HxTriggerEvent(open val name: String) {
     }
 
     class Intersect(val modifiers: Set<AttributeModifier> = emptySet()) : HxTriggerEvent("intersect") {
-        override fun invoke(): String = "$name " + modifiers.joinToString(" ") { it() }
+        override fun invoke(): String = "$name " + modifiers.joinToString(" ") { it.value }
     }
 }
