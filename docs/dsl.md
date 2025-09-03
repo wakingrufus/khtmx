@@ -79,7 +79,7 @@ val listTemplate = htmxTemplate<List<String>> {
 | [`hx-swap`](https://htmx.org/attributes/hx-swap/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxSwap.kt)    |
 | [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)     | ❌         |                                                                                                                                             |
 | [`hx-target`](https://htmx.org/attributes/hx-target/)         | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTarget.kt)  |
-| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         |                                                                                                                                             |
+| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTrigger.kt) |
 | [`hx-vals`](https://htmx.org/attributes/hx-vals/)             | ✅         |                                                                                                                                             |
 
 | Additional Attributes                                              | Supported  |
