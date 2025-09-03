@@ -44,7 +44,7 @@ class HxDsl(val verb: HttpVerb, val path: String) {
     }
 
     @HtmxDsl
-    fun trigger(dsl: HxTriggerDsl.() -> Unit = {}) {
+    fun hxTrigger(dsl: HxTriggerDsl.() -> Unit = {}) {
         trigger = HxTriggerDsl().apply(dsl)()
     }
 
@@ -72,7 +72,7 @@ class HxDsl(val verb: HttpVerb, val path: String) {
         element.apply {
             attributes["hx-${verb.attrName}"] = path
             swap?.let { this.hxSwap(it()) }
-            trigger?.let { attributes["hx-trigger"] = it() }
+            trigger?.let { this.hxTrigger(it()) }
             hxTarget?.let { this.hxTarget(it) }
             hxPushUrl?.let { this.hxPushUrl(it) }
             hxSelect?.let { hxSelect(it) }

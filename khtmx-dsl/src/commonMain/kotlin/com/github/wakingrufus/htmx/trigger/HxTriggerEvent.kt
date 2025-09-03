@@ -10,9 +10,21 @@ sealed class HxTriggerEvent(open val name: String) {
         override fun invoke(): String = "every " + interval.toHtmx()
     }
 
-    class StandardEvent(override val name: String, private val modifiers: List<AttributeModifier> = emptyList()) :
-        HxTriggerEvent(name) {
-        override fun invoke(): String = "$name " + modifiers.joinToString(" ") { it.value }
+    class StandardEvent(
+        override val name: String,
+        private val filter: String? = null,
+        private val modifiers: List<AttributeModifier> = emptyList()
+    ) : HxTriggerEvent(name) {
+        override fun invoke(): String = buildString {
+            append(name)
+            if (filter != null) {
+                append("[$filter]")
+            }
+            if (modifiers.isNotEmpty()) {
+                append(" ")
+                append(modifiers.joinToString(" ") { it.value })
+            }
+        }
     }
 
     object Load : HxTriggerEvent("load") {

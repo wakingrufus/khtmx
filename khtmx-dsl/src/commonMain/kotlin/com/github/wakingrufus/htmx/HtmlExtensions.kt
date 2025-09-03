@@ -44,6 +44,11 @@ fun HTMLTag.hxTarget(selector: String) {
 }
 
 @HtmxDsl
+fun HTMLTag.hxTrigger(value: String) {
+    attributes["hx-trigger"] = value
+}
+
+@HtmxDsl
 fun HTMLTag.hxVals(json: String) {
     attributes["hx-vals"] = json
 }
