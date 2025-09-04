@@ -1,0 +1,26 @@
+name: Release
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          cache: 'gradle'
+          distribution: "temurin"
+      - run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+      - name: Gradle release
+        run: ./gradlew jreleaserFullRelease --no-daemon --stacktrace -Pversion=${{ env.VERSION }}
+        env:
+          SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
+          SONATYPE_PASS: ${{ secrets.SONATYPE_PASS }}
+          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
