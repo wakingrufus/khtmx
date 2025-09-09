@@ -32,8 +32,6 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
                     groupId = project.group as String
                     pom {
                         name = "${project.name}-jvm"
-                        description = project.description
-                        url = "https://github.com/wakingrufus/khtmx"
                         licenses {
                             license {
                                 name = "Apache-2.0"
@@ -62,8 +60,6 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
                     groupId = project.group as String
                     pom {
                         name = "${project.name}-js"
-                        description = project.description
-                        url = "https://github.com/wakingrufus/khtmx"
                         licenses {
                             license {
                                 name = "Apache-2.0"
@@ -108,7 +104,9 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
             publications.filterIsInstance<MavenPublication>().forEach {
                 it.pom {
                     url.set("https://github.com/wakingrufus/khtmx")
-                    description.set(project.description)
+                    project.afterEvaluate {
+                        this@pom.description.set(project.description)
+                    }
                 }
                 it.artifact(javadocJar.get())
             }
