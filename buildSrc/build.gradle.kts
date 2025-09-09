@@ -19,5 +19,9 @@ gradlePlugin {
             id = "khtmx.jvm"
             implementationClass = "KhtmxJvmPlugin"
         }
+        create("multiplatform") {
+            id = "khtmx.multiplatform"
+            implementationClass = "KhtmxMultiplatformPlugin"
+        }
     }
 }
