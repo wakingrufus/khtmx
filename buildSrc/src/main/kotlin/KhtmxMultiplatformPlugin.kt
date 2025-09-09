@@ -8,6 +8,8 @@ import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
+import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
 class KhtmxMultiplatformPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -20,7 +22,7 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
         project.extensions.findByType<KotlinMultiplatformExtension>()?.apply {
             jvmToolchain(11)
             compilerOptions {
-                languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+                languageVersion.set(KotlinVersion.KOTLIN_2_0)
                 apiVersion.set(KotlinVersion.KOTLIN_2_0)
             }
             jvm {
