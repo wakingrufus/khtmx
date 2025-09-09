@@ -81,6 +81,9 @@ jreleaser {
                     artifactOverride {
                         artifactId = "khtmx-dsl-js"
                         jar = false
+                        verifyPom = false
+                        sourceJar = false
+                        javadocJar = false
                     }
                 }
             }
