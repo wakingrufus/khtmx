@@ -68,21 +68,7 @@ jreleaser {
     deploy {
         maven {
             mavenCentral {
-                create("sonatype-multiplatform") {
-                    active = Active.ALWAYS
-                    url = "https://central.sonatype.com/api/v1/publisher"
-                    stagingRepository("build/staging-deploy-multiplatform")
-                    applyMavenCentralRules = true
-                    username = System.getenv("SONATYPE_USER")
-                    password = System.getenv("SONATYPE_PASS")
-                    namespace.set("io.github.wakingrufus")
-                    retryDelay = 30
-                    maxRetries = 100
-                    artifactOverride {
-                        jar = false
-                    }
-                }
-                create("sonatype-jvm") {
+                create("sonatype") {
                     active = Active.ALWAYS
                     url = "https://central.sonatype.com/api/v1/publisher"
                     stagingRepository("build/staging-deploy")
@@ -92,6 +78,10 @@ jreleaser {
                     namespace.set("io.github.wakingrufus")
                     retryDelay = 30
                     maxRetries = 100
+                    artifactOverride {
+                        artifactId = "khtmx-dsl-js"
+                        jar = false
+                    }
                 }
             }
         }

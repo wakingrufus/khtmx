@@ -16,7 +16,7 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
         project.plugins.apply("org.jetbrains.kotlin.multiplatform")
         project.plugins.apply("jacoco")
         project.plugins.apply("org.jlleitschuh.gradle.ktlint")
-        project.publishToLocalStaging("staging-deploy-multiplatform")
+        project.publishToLocalStaging()
         project.extensions.findByType<KotlinMultiplatformExtension>()?.apply {
             jvmToolchain(11)
             compilerOptions {
