@@ -1,5 +1,8 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.publish.PublishingExtension
+import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.api.tasks.bundling.Jar
 import org.gradle.api.tasks.testing.Test
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.findByType
@@ -8,8 +11,6 @@ import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
-import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
 class KhtmxMultiplatformPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -18,6 +19,7 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
         project.plugins.apply("org.jetbrains.kotlin.multiplatform")
         project.plugins.apply("jacoco")
         project.plugins.apply("org.jlleitschuh.gradle.ktlint")
+        project.plugins.apply("org.jetbrains.dokka")
         project.publishToLocalStaging()
         project.extensions.findByType<KotlinMultiplatformExtension>()?.apply {
             jvmToolchain(11)
@@ -98,6 +100,14 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
             }
             finalizedBy(jacocoReport)
         }
-
+        val javadocJar = project.tasks.register<Jar>("javadocJar") {
+            archiveClassifier.set("javadoc")
+            from(project.tasks.named("dokkaGenerateHtml"))
+        }
+        project.extensions.findByType<PublishingExtension>()?.apply {
+            publications.filterIsInstance<MavenPublication>().forEach {
+                it.artifact(javadocJar.get())
+            }
+        }
     }
 }
