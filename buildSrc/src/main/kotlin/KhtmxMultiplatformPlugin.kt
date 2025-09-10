@@ -32,23 +32,6 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
                     groupId = project.group as String
                     pom {
                         name = "${project.name}-jvm"
-                        licenses {
-                            license {
-                                name = "Apache-2.0"
-                                url = "https://spdx.org/licenses/Apache-2.0.html"
-                            }
-                        }
-                        developers {
-                            developer {
-                                id = "wakingrufus"
-                                name = "John Burns"
-                            }
-                        }
-                        scm {
-                            connection = "scm:git:https://github.com/wakingrufus/khtmx.git"
-                            developerConnection = "scm:git:ssh://github.com/wakingrufus/khtmx.git"
-                            url = "http://github.com/wakingrufus/khtmx"
-                        }
                     }
                 }
             }
@@ -103,9 +86,29 @@ class KhtmxMultiplatformPlugin : Plugin<Project> {
         project.extensions.findByType<PublishingExtension>()?.apply {
             publications.filterIsInstance<MavenPublication>().forEach {
                 it.pom {
+                    if(!name.isPresent) {
+                        name.set(project.name)
+                    }
                     url.set("https://github.com/wakingrufus/khtmx")
                     project.afterEvaluate {
                         this@pom.description.set(project.description)
+                    }
+                    licenses {
+                        license {
+                            name = "Apache-2.0"
+                            url = "https://spdx.org/licenses/Apache-2.0.html"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "wakingrufus"
+                            name = "John Burns"
+                        }
+                    }
+                    scm {
+                        connection = "scm:git:https://github.com/wakingrufus/khtmx.git"
+                        developerConnection = "scm:git:ssh://github.com/wakingrufus/khtmx.git"
+                        url = "http://github.com/wakingrufus/khtmx"
                     }
                 }
                 it.artifact(javadocJar.get())
