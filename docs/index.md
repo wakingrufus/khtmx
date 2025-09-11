@@ -9,7 +9,7 @@ has_children: false
 This repository contains libraries which make using HTMX within Kotlin better.
 
 ## KHTMX DSL
-KHTMX DSL is a multi-platform Kotlin DSL which extends the kotlinx HTML DSL to support HTMX.
+KHTMX DSL is a multi-platform Kotlin DSL which extends the kotlinx HTML DSL to support HTMX. See the full [Documentation](dsl.md) for more information.
 
 ## KHTMX Spring
 
