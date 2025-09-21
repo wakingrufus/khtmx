@@ -14,6 +14,7 @@ class HxDsl(val verb: HttpVerb, val path: String) {
     private var hxParams: String? = null
     private var hxPushUrl: String? = null
     private var hxTarget: String? = null
+    private var hxVals: String? = null
 
     @HtmxDsl
     fun hxTarget(selector: String) {
@@ -68,6 +69,11 @@ class HxDsl(val verb: HttpVerb, val path: String) {
         hxParams = params.joinToString(",")
     }
 
+    @HtmxDsl
+    fun hxVals(json: String) {
+        hxVals = json
+    }
+
     operator fun invoke(element: HTMLTag) {
         element.apply {
             attributes["hx-${verb.attrName}"] = path
@@ -77,6 +83,7 @@ class HxDsl(val verb: HttpVerb, val path: String) {
             hxPushUrl?.let { this.hxPushUrl(it) }
             hxSelect?.let { hxSelect(it) }
             hxParams?.let { hxParams(it) }
+            hxVals?.let { hxVals(it) }
         }
     }
 }
