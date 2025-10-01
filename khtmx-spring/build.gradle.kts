@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     api(project(":khtmx-dsl"))
-    implementation(platform("org.springframework:spring-framework-bom:7.0.0-M7"))
+    implementation(platform(libs.spring.bom))
     implementation("org.springframework:spring-beans")
     implementation("org.springframework:spring-webmvc")
     implementation(platform("com.fasterxml.jackson:jackson-bom:2.19.2"))

@@ -1,0 +1,6 @@
+[versions]
+boot = "4.0.0-M1"
+spring = "7.0.0-M7"
+
+[libraries]
+spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
