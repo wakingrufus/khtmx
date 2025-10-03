@@ -7,9 +7,8 @@ dependencies {
     implementation(platform(libs.spring.bom))
     implementation("org.springframework:spring-beans")
     implementation("org.springframework:spring-webmvc")
-    implementation(platform("com.fasterxml.jackson:jackson-bom:2.19.2"))
-    implementation("com.fasterxml.jackson.core:jackson-databind")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
+    implementation(platform("tools.jackson:jackson-bom:3.0.0-rc10"))
+    implementation("tools.jackson.core:jackson-databind")
 
     testImplementation(kotlin("reflect"))
     testImplementation("org.springframework.boot:spring-boot-starter-test:4.0.0-M1")

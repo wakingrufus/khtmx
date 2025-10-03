@@ -1,6 +1,5 @@
 package com.github.wakingrufus.khtmx.spring
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.wakingrufus.htmx.HtmxDsl
 import com.github.wakingrufus.htmx.HttpVerb
 import com.github.wakingrufus.htmx.template.HtmxTemplate
@@ -16,6 +15,7 @@ import org.springframework.http.MediaType
 import org.springframework.web.servlet.function.RouterFunctionDsl
 import org.springframework.web.servlet.function.ServerResponse
 import org.springframework.web.servlet.function.router
+import tools.jackson.databind.json.JsonMapper
 import java.security.Principal
 
 @HtmxDsl
@@ -134,7 +134,7 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
             path = path,
             requestClass = REQ::class.java,
             controller = getBean<CONTROLLER>(),
-            objectMapper = getBean<ObjectMapper>(),
+            objectMapper = getBean<JsonMapper>(),
             binding = binding,
             renderer = renderer
         )
@@ -169,7 +169,7 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
             path = path,
             requestClass = REQ::class.java,
             controller = getBean<CONTROLLER>(),
-            objectMapper = getBean<ObjectMapper>(),
+            objectMapper = getBean<JsonMapper>(),
             binding = binding,
             renderer = renderer
         )
