@@ -1,12 +1,12 @@
 package com.github.wakingrufus.khtmx.spring.route
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.wakingrufus.htmx.template.HtmxTemplate
 import org.springframework.beans.factory.BeanRegistrarDsl.SupplierContextDsl
 import org.springframework.beans.factory.ObjectProvider
 import org.springframework.web.servlet.function.RouterFunctionDsl
 import org.springframework.web.servlet.function.ServerRequest
 import org.springframework.web.servlet.function.ServerResponse
+import tools.jackson.databind.json.JsonMapper
 import java.security.Principal
 
 interface HxRoute {
@@ -18,7 +18,7 @@ fun <CONTROLLER : Any, REQ : Record, RESP : Any> withParam(
     path: String,
     requestClass: Class<REQ>,
     controller: SupplierContextDsl<*>.() -> ObjectProvider<CONTROLLER>,
-    objectMapper: SupplierContextDsl<*>.() -> ObjectProvider<ObjectMapper>,
+    objectMapper: SupplierContextDsl<*>.() -> ObjectProvider<JsonMapper>,
     binding: CONTROLLER.(REQ) -> RESP,
     renderer: HtmxTemplate<RESP>
 ): HxRoute {
@@ -52,7 +52,7 @@ fun <CONTROLLER : Any, REQ : Record, USER : Principal, RESP : Any> withParamAndA
     path: String,
     requestClass: Class<REQ>,
     controller: SupplierContextDsl<*>.() -> ObjectProvider<CONTROLLER>,
-    objectMapper: SupplierContextDsl<*>.() -> ObjectProvider<ObjectMapper>,
+    objectMapper: SupplierContextDsl<*>.() -> ObjectProvider<JsonMapper>,
     binding: CONTROLLER.(USER?, REQ) -> RESP,
     renderer: HtmxTemplate<RESP>
 ): HxRoute {

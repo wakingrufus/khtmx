@@ -1,6 +1,5 @@
 package com.github.wakingrufus.khtmx.spring.route
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.wakingrufus.htmx.template.htmxTemplate
 import kotlinx.html.div
 import kotlinx.html.span
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.function.RouterFunction
 import org.springframework.web.servlet.function.RouterFunctionDsl
 import org.springframework.web.servlet.function.ServerResponse
 import org.springframework.web.servlet.function.router
+import tools.jackson.databind.json.JsonMapper
 import java.util.UUID
 
 class HxRouteTest {
@@ -47,7 +47,7 @@ class HxRouteTest {
         var routerFunction: RouterFunction<ServerResponse>? = null
         val beanRegistrar = BeanRegistrarDsl({
             registerBean<Controller>()
-            registerBean<ObjectMapper> { ObjectMapper() }
+            registerBean<JsonMapper> { JsonMapper() }
             registerBean {
                 routerFunction = router {
                     hxRoute.registerRoutes(this@registerBean, this)
