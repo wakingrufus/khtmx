@@ -14,10 +14,9 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           java-version: 21
-          cache: 'gradle'
           distribution: "temurin"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
         with:
           cache-overwrite-existing: true
       - run: ./gradlew build javaCodeCoverageReport --no-daemon
@@ -28,6 +27,7 @@ jobs:
           report_paths: '**/build/test-results/*/TEST-*.xml'
           detailed_summary: true
           include_passed: true
+
       # generates coverage-report.md and publishes as checkrun
       - name: JaCoCo Code Coverage Report
         id: jacoco_reporter
