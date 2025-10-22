@@ -9,26 +9,24 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation(platform("org.springframework:spring-framework-bom:7.0.0-M7"))
-    implementation("org.springframework:spring-beans")
-    implementation("org.springframework:spring-webmvc")
-    implementation("org.springframework.boot:spring-boot-autoconfigure:4.0.0-M1")
-    implementation("org.springframework.boot:spring-boot-starter-jetty:4.0.0-M1")
-    implementation("org.springframework.boot:spring-boot-starter-web:4.0.0-M1")
+    implementation(platform(libs.spring.bom))
+    implementation(libs.spring.boot.autoconfigure)
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.jetty)
     implementation("io.github.wakingrufus:khtmx-dsl")
     implementation("io.github.wakingrufus:khtmx-spring")
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
     implementation("ch.qos.logback:logback-classic:1.5.18")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test:4.0.0-M1")
-    testImplementation("org.springframework.boot:spring-boot-starter-restclient:4.0.0-M1")
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.spring.boot.starter.restclient)
     testImplementation("org.assertj:assertj-core:3.27.3")
 }
 
 testing {
     suites {
         val test by getting(JvmTestSuite::class) {
-            useJUnitJupiter()
+            useJUnitJupiter("6.0.0")
         }
     }
 }

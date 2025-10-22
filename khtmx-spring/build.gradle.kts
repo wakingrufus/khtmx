@@ -7,11 +7,14 @@ dependencies {
     implementation(platform(libs.spring.bom))
     implementation("org.springframework:spring-beans")
     implementation("org.springframework:spring-webmvc")
-    implementation(platform("tools.jackson:jackson-bom:3.0.0-rc10"))
+    implementation(platform("tools.jackson:jackson-bom:3.0.0"))
     implementation("tools.jackson.core:jackson-databind")
 
     testImplementation(kotlin("reflect"))
-    testImplementation("org.springframework.boot:spring-boot-starter-test:4.0.0-M1")
     testImplementation("org.assertj:assertj-core:3.27.3")
-    testImplementation("org.springframework.boot:spring-boot-starter-jetty:4.0.0-M1")
+    testImplementation(libs.spring.boot.starter.jetty)
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.spring.boot.starter.web)
+    testImplementation(libs.spring.boot.starter.restclient)
+    testImplementation(libs.spring.test)
 }
