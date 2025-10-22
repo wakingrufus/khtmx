@@ -7,7 +7,7 @@ plugins {
 }
 project.description = "A multiplatform kotlin DSL for HTMX"
 tasks.wrapper {
-    gradleVersion = "9.0.0"
+    gradleVersion = "9.1.0"
     distributionType = Wrapper.DistributionType.BIN
 }
 allprojects {
@@ -24,12 +24,12 @@ dependencies {
 
 reporting {
     reports {
-        val javaCodeCoverageReport by creating(JacocoCoverageReport::class){
+        val javaCodeCoverageReport by creating(JacocoCoverageReport::class) {
             testSuiteName = "test"
         }
 
         // hack to get jacoco aggregate to work with KMM
-        afterEvaluate{
+        afterEvaluate {
             javaCodeCoverageReport.reportTask.get().apply {
                 dependsOn(":khtmx-dsl:jacocoTestReport")
                 executionData(executionData.plus(file("khtmx-dsl/build/jacoco/jvmTest.exec")))
@@ -92,4 +92,8 @@ jreleaser {
 }
 project.tasks.named("jreleaserFullRelease") {
     dependsOn(subprojects.map { it.tasks.named("publish") })
+}
+
+project.tasks.named("build") {
+    dependsOn(gradle.includedBuild("example-spring-app").task(":build"))
 }

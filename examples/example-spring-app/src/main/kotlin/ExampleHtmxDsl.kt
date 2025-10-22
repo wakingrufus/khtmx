@@ -21,7 +21,8 @@ class ExampleHtmxDsl : SpringHtmxDsl({
     page("/index") {
         form {
             hxPost(helloWorldUrl) {
-                swap(HxSwapType.OuterHtml) {
+                hxSwap {
+                    style(HxSwapType.OuterHtml)
                 }
             }
             textInput(name = "name") {
@@ -32,7 +33,9 @@ class ExampleHtmxDsl : SpringHtmxDsl({
         }
         button {
             hxPost(helloWorldUrl) {
-                swap(HxSwapType.OuterHtml)
+                hxSwap {
+                    style(HxSwapType.OuterHtml)
+                }
             }
             +"Click Me"
         }

@@ -16,10 +16,7 @@ import java.util.UUID
     classes = [ExampleApplication::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     properties = [
-        "logging.level.root = DEBUG",
-        "logging.level.org.eclipse.jetty=INFO",
-        "logging.level.jdk.event.security=INFO",
-        "logging.level.org.springframework.web.servlet.function.support.RouterFunctionMapping  = TRACE"
+        "logging.level.root = INFO"
     ]
 )
 class ExampleApplicationTest {
