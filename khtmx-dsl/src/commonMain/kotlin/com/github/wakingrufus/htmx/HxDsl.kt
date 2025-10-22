@@ -40,6 +40,9 @@ class HxDsl(val verb: HttpVerb, val path: String) {
     var hxSelect: String? = null
 
     @HtmxDsl
+    var hxSelectOob: String? = null
+
+    @HtmxDsl
     fun hxSwap(dsl: HxSwapDsl.() -> Unit = {}) {
         swap = HxSwapDsl().apply(dsl)()
     }
@@ -82,6 +85,7 @@ class HxDsl(val verb: HttpVerb, val path: String) {
             hxTarget?.let { this.hxTarget(it) }
             hxPushUrl?.let { this.hxPushUrl(it) }
             hxSelect?.let { hxSelect(it) }
+            hxSelectOob?.let { hxSelectOob(it) }
             hxParams?.let { hxParams(it) }
             hxVals?.let { hxVals(it) }
         }
