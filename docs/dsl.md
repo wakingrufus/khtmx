@@ -68,19 +68,19 @@ val listTemplate = htmxTemplate<List<String>> {
 
 ## API Support
 
-| Core Attributes                                               | Supported | Example                                                                                                                                     |
-| ------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`hx-get`](https://htmx.org/attributes/hx-get/)               | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxGet.kt)     |
-| [`hx-post`](https://htmx.org/attributes/hx-post/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPost.kt)    |
-| [`hx-on*`](https://htmx.org/attributes/hx-on/)                | ❌         |                                                                                                                                             |
-| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)     | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPushUrl.kt) |
-| [`hx-select`](https://htmx.org/attributes/hx-select/)         | ❌         |                                                                                                                                             |
-| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/) | ❌         |                                                                                                                                             |
-| [`hx-swap`](https://htmx.org/attributes/hx-swap/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxSwap.kt)    |
-| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)     | ❌         |                                                                                                                                             |
-| [`hx-target`](https://htmx.org/attributes/hx-target/)         | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTarget.kt)  |
-| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTrigger.kt) |
-| [`hx-vals`](https://htmx.org/attributes/hx-vals/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxVals.kt)    |
+| Core Attributes                                               | Supported | Example                                                                                                                                       |
+|---------------------------------------------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| [`hx-get`](https://htmx.org/attributes/hx-get/)               | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxGet.kt)       |
+| [`hx-post`](https://htmx.org/attributes/hx-post/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPost.kt)      |
+| [`hx-on*`](https://htmx.org/attributes/hx-on/)                | ❌         |                                                                                                                                               |
+| [`hx-push-url`](https://htmx.org/attributes/hx-push-url/)     | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxPushUrl.kt)   |
+| [`hx-select`](https://htmx.org/attributes/hx-select/)         | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxSelect.kt)    |
+| [`hx-select-oob`](https://htmx.org/attributes/hx-select-oob/) | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxSelectOob.kt) |
+| [`hx-swap`](https://htmx.org/attributes/hx-swap/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxSwap.kt)      |
+| [`hx-swap-oob`](https://htmx.org/attributes/hx-swap-oob/)     | ❌         |                                                                                                                                               |
+| [`hx-target`](https://htmx.org/attributes/hx-target/)         | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTarget.kt)    |
+| [`hx-trigger`](https://htmx.org/attributes/hx-trigger/)       | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxTrigger.kt)   |
+| [`hx-vals`](https://htmx.org/attributes/hx-vals/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxVals.kt)      |
 
 | Additional Attributes                                             | Supported | Example                                                                                                                                    |
 |-------------------------------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------|

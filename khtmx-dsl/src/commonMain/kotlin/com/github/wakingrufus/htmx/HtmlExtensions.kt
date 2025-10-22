@@ -14,6 +14,11 @@ fun HTMLTag.hxSelect(selector: String) {
 }
 
 @HtmxDsl
+fun HTMLTag.hxSelectOob(selector: String) {
+    attributes["hx-select-oob"] = selector
+}
+
+@HtmxDsl
 fun HTMLTag.hxParams(params: String) {
     attributes["hx-params"] = params
 }
