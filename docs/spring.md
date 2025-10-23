@@ -9,11 +9,11 @@ has_children: false
 
 khtmx-spring provides a DSL for Spring Boot which allows a seamless integration between Spring Boot routes and HTMX pages and templates.
 
-## Usage
+## Getting Started
 
 This entry point for khtmx-spring is the `SpringHtmxDsl` class. 
 
-#### AutoConfiguration
+### AutoConfiguration
 To use `SpringHtmxDsl` in an Spring application with AutoConfiguration, extend this class, similar to `BeanRegistrarDsl`:
 ```kotlin
 class ExampleHtmxDsl : SpringHtmxDsl({
@@ -32,7 +32,7 @@ Then, Import this class in your Application:
 open class ExampleApplication
 ```
 
-#### ApplicationContextInitializer
+### ApplicationContextInitializer
 
 To use `SpringHtmxDsl` via an `ApplicationContextInitializer`, it can just be registered as a `BeanRegistrarDsl`:
 ```kotlin
@@ -50,14 +50,11 @@ Each discrete "page" or "SPA" you would like to build starts with an HTMX "page"
 
 ```kotlin
 
-class TestKotlinApplication : SpringFunkApplication {
-    override fun dsl(): SpringDslContainer.() -> Unit = {
-        htmx {
-            page("/index") {
-            }
-        }
+class ExampleHtmxDsl : SpringHtmxDsl({
+    page("/index") {
+        // HTMX DSL goes here
     }
-}
+})
 ```
 
 You must declare the "landing page" for each page, which is the initial content to show on load. Use the HTML DSL to define that view.
@@ -73,7 +70,7 @@ page("/index") {
 }
 ```
 
-### Templates
+## Templates
 Templates can be declared which define how a given binding response should be rendered to htmx.
 
 ```kotlin
@@ -101,7 +98,7 @@ val listTemplate = htmxTemplate<List<String>> {
 }
 ```
 
-### HTMX Interaction
+## HTMX Interaction
 
 This library provides extensions on the HTML DSL in order to declare HTMX interaction.
 
@@ -121,7 +118,7 @@ page("/index") {
 
 Each interaction which binds to a backend route will need a route declared to handle the request.
 
-### HTMX routes
+## HTMX routes
 
 Routes are server-side handers for handling HTMX interactions. They consist of 4 main components:
 
@@ -155,10 +152,10 @@ val myTemplate = htmxTemplate<ResponseDataClass> {
 route(HttpVerb.POST, helloWorldUrl, ExampleService::sayHello, myTemplate)
 ```
 
-#### GET
+### GET
 GET requests may have a parameter or no parameter.
 
-##### GET requests with no parameter
+#### GET requests with no parameter
 ```kotlin
 get("things", TestController::getAll) {
     span {
@@ -167,7 +164,7 @@ get("things", TestController::getAll) {
 }
 ```
 
-##### GET requests with a parameter
+#### GET requests with a parameter
 ```kotlin
 route(HttpVerb.GET, "thing/1", TestController::get) {
     span {
