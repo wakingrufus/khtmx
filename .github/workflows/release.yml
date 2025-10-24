@@ -14,6 +14,10 @@ jobs:
           java-version: 21
           cache: 'gradle'
           distribution: "temurin"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-overwrite-existing: true
       - run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
       - name: Gradle release
         run: ./gradlew jreleaserFullRelease --no-daemon --stacktrace -Pversion=${{ env.VERSION }} --no-configuration-cache
