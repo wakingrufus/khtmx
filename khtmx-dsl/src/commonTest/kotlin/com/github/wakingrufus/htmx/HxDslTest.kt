@@ -104,6 +104,36 @@ class HxDslTest {
     }
 
     @Test
+    fun test_swap_oob_boolean() {
+        val actual = buildString {
+            appendHTML(false).div {
+                hxSwapOob(true)
+            }
+        }
+        assertEquals(actual, """<div hx-swap-oob="true"></div>""")
+    }
+
+    @Test
+    fun test_swap_oob_swap() {
+        val actual = buildString {
+            appendHTML(false).div {
+                hxSwapOob(HxSwapType.OuterHtml)
+            }
+        }
+        assertEquals(actual, """<div hx-swap-oob="outerHTML"></div>""")
+    }
+
+    @Test
+    fun test_swap_oob_swap_selector() {
+        val actual = buildString {
+            appendHTML(false).div {
+                hxSwapOob(HxSwapType.OuterHtml, "#id")
+            }
+        }
+        assertEquals(actual, """<div hx-swap-oob="outerHTML:#id"></div>""")
+    }
+
+    @Test
     fun test_select() {
         val actual = buildString {
             appendHTML(false).div {

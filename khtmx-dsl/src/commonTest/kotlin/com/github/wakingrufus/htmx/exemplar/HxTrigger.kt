@@ -59,6 +59,7 @@ class HxTrigger {
             }
         }
         assertEquals(
+            //language=html
             """<input name="q" hx-get="/search" hx-trigger="input changed delay:1s" hx-target="#search-results"/>""",
             actual
         )
