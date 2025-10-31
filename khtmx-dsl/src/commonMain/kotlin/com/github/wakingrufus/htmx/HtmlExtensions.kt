@@ -1,6 +1,7 @@
 package com.github.wakingrufus.htmx
 
 import com.github.wakingrufus.htmx.swap.HxSwapDsl
+import com.github.wakingrufus.htmx.swap.HxSwapType
 import kotlinx.html.HTMLTag
 
 @HtmxDsl
@@ -41,6 +42,21 @@ fun HTMLTag.hxSwap(value: String) {
 @HtmxDsl
 fun HTMLTag.hxSwap(dsl: HxSwapDsl.() -> Unit = {}) {
     attributes["hx-swap"] = HxSwapDsl().apply(dsl).invoke().invoke()
+}
+
+@HtmxDsl
+fun HTMLTag.hxSwapOob(value: Boolean) {
+    attributes["hx-swap-oob"] = value.toString()
+}
+
+@HtmxDsl
+fun HTMLTag.hxSwapOob(type: HxSwapType) {
+    attributes["hx-swap-oob"] = type.stringValue
+}
+
+@HtmxDsl
+fun HTMLTag.hxSwapOob(type: HxSwapType, selector: String) {
+    attributes["hx-swap-oob"] = type.stringValue + ":" + selector
 }
 
 @HtmxDsl
