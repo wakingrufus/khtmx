@@ -11,7 +11,7 @@ khtmx-spring provides a DSL for Spring Boot which allows a seamless integration 
 
 ## Getting Started
 
-This entry point for khtmx-spring is the `SpringHtmxDsl` class. 
+This entry point for khtmx-spring is the `SpringHtmxDsl` class.
 
 ### AutoConfiguration
 To use `SpringHtmxDsl` in an Spring application with AutoConfiguration, extend this class, similar to `BeanRegistrarDsl`:
@@ -168,7 +168,10 @@ get("things", TestController::getAll) {
 ```kotlin
 route(HttpVerb.GET, "thing/1", TestController::get) {
     span {
-        +it.id.toString() 
+        +it.id.toString()
     }
 }
 ```
+
+### Response Headers
+There is no support yet for [HTMX Response Headers](https://htmx.org/reference/#response_headers).

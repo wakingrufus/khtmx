@@ -1,5 +1,6 @@
 package com.github.wakingrufus.htmx
 
+import com.github.wakingrufus.htmx.HtmxEvents.abort
 import com.github.wakingrufus.htmx.exemplar.htmxExample
 import kotlinx.html.div
 import kotlinx.html.span
@@ -65,5 +66,45 @@ internal class HtmxExtensionsTest {
             }
         }
         assertEquals(actual, """<div hx-push-url="true"></div>""")
+    }
+
+    @Test
+    fun test_hxOn_custom() {
+        val actual = htmxExample {
+            div {
+                hxOn("click", """print("alert")""")
+            }
+        }
+        assertEquals(actual, """<div hx-on:click="print(&quot;alert&quot;)"></div>""")
+    }
+
+    @Test
+    fun test_hxOn_htmx_event() {
+        val actual = htmxExample {
+            div {
+                hxOn(HtmxEvent.CONFIRM, """print("alert")""")
+            }
+        }
+        assertEquals(actual, """<div hx-on:htmx:confirm="print(&quot;alert&quot;)"></div>""")
+    }
+
+    @Test
+    fun test_hxOn_htmx_event_html_form() {
+        val actual = htmxExample {
+            div {
+                hxOn(HtmxEvent.ON_LOAD_ERROR, """print("alert")""")
+            }
+        }
+        assertEquals(actual, """<div hx-on:htmx:on-load-error="print(&quot;alert&quot;)"></div>""")
+    }
+
+    @Test
+    fun test_hxOn_htmx_event_reference() {
+        val actual = htmxExample {
+            div {
+                hxOn(::abort, """print("alert")""")
+            }
+        }
+        assertEquals(actual, """<div hx-on:htmx:abort="print(&quot;alert&quot;)"></div>""")
     }
 }
