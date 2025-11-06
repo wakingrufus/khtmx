@@ -76,7 +76,7 @@ jreleaser {
                     username = System.getenv("SONATYPE_USER")
                     password = System.getenv("SONATYPE_PASS")
                     namespace.set("io.github.wakingrufus")
-                    retryDelay = 30
+                    retryDelay = 60
                     maxRetries = 100
                     artifactOverride {
                         artifactId = "khtmx-dsl-js"
