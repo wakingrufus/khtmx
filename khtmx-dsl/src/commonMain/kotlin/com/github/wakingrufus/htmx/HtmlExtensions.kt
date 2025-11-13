@@ -64,6 +64,14 @@ fun HTMLTag.hxDelete(path: String, dsl: HxDsl.() -> Unit = {}) {
 }
 
 /**
+ * https://htmx.org/attributes/hx-boost/
+ */
+@HtmxDsl
+fun HTMLTag.hxBoost(boost: Boolean) {
+    attributes["hx-boost"] = boost.toString()
+}
+
+/**
  * https://htmx.org/attributes/hx-select/
  */
 @HtmxDsl

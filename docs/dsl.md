@@ -84,7 +84,7 @@ val listTemplate = htmxTemplate<List<String>> {
 
 | Additional Attributes                                             | Supported | Example                                                                                                                                    |
 |-------------------------------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| [`hx-boost`](https://htmx.org/attributes/hx-boost/)               | ❌         |                                                                                                                                            |
+| [`hx-boost`](https://htmx.org/attributes/hx-boost/)               | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxBoost.kt)  |
 | [`hx-confirm`](https://htmx.org/attributes/hx-confirm/)           | ❌         |                                                                                                                                            |
 | [`hx-delete`](https://htmx.org/attributes/hx-delete/)             | ✅         | [Example](https://github.com/wakingrufus/khtmx/blob/main/khtmx-dsl/src/commonTest/kotlin/com/github/wakingrufus/htmx/exemplar/HxDelete.kt) |
 | [`hx-disable`](https://htmx.org/attributes/hx-disable/)           | ❌         |                                                                                                                                            |

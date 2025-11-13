@@ -59,6 +59,16 @@ internal class HtmxExtensionsTest {
     }
 
     @Test
+    fun test_hxBoost() {
+        val actual = htmxExample {
+            div {
+                hxBoost(true)
+            }
+        }
+        assertEquals(actual, """<div hx-boost="true"></div>""")
+    }
+
+    @Test
     fun test_hxPushUrl() {
         val actual = htmxExample {
             div {
