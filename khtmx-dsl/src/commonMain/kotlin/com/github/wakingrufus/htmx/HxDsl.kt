@@ -16,63 +16,50 @@ class HxDsl(val verb: HttpVerb, val path: String) {
     private var hxTarget: String? = null
     private var hxVals: String? = null
 
-    @HtmxDsl
     fun hxTarget(selector: String) {
         hxTarget = selector
     }
 
-    @HtmxDsl
     fun hxTarget(selector: SelectorDsl.() -> Unit) {
         hxTarget = SelectorDsl().apply(selector).invoke()
     }
 
-    @HtmxDsl
     fun hxPushUrl(customUrl: String) {
         hxPushUrl = customUrl
     }
 
-    @HtmxDsl
     fun hxPushUrl(enabled: Boolean) {
         hxPushUrl = enabled.toString()
     }
 
-    @HtmxDsl
     var hxSelect: String? = null
 
-    @HtmxDsl
     var hxSelectOob: String? = null
 
-    @HtmxDsl
     fun hxSwap(dsl: HxSwapDsl.() -> Unit = {}) {
         swap = HxSwapDsl().apply(dsl)()
     }
 
-    @HtmxDsl
     fun hxTrigger(dsl: HxTriggerDsl.() -> Unit = {}) {
         trigger = HxTriggerDsl().apply(dsl)()
     }
 
-    @HtmxDsl
     fun allParams() {
         hxParams = "*"
     }
 
-    @HtmxDsl
     fun noParams() {
         hxParams = "none"
     }
 
-    @HtmxDsl
     fun excludeParams(vararg params: String) {
         hxParams = "not " + params.joinToString(",")
     }
 
-    @HtmxDsl
     fun includeParams(vararg params: String) {
         hxParams = params.joinToString(",")
     }
 
-    @HtmxDsl
     fun hxVals(json: String) {
         hxVals = json
     }

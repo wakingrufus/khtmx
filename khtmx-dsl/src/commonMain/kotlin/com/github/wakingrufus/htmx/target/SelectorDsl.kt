@@ -6,22 +6,18 @@ import com.github.wakingrufus.htmx.HtmxDsl
 class SelectorDsl {
     private var target: String? = null
 
-    @HtmxDsl
     fun `this`() {
         target = "this"
     }
 
-    @HtmxDsl
     fun closest(selector: String) {
         target = "closest $selector"
     }
 
-    @HtmxDsl
     fun find(selector: String) {
         target = "find $selector"
     }
 
-    @HtmxDsl
     fun next(selector: String? = null) {
         target = if (selector != null) {
             "next $selector"
@@ -30,7 +26,6 @@ class SelectorDsl {
         }
     }
 
-    @HtmxDsl
     fun previous(selector: String? = null) {
         target = if (selector != null) {
             "previous $selector"

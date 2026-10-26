@@ -20,7 +20,7 @@ class HtmxTemplateTest {
                 template.render(this, "Hello")
             }
         }
-        assertEquals(output, "<span>Hello</span>")
+        assertEquals("<span>Hello</span>", output)
     }
 
     @Test
@@ -38,6 +38,6 @@ class HtmxTemplateTest {
         val output = buildString {
             appendHTML(false).template(listTemplate, listOf("Hello", "World"))
         }
-        assertEquals(output, "<ul><li>Hello</li><li>World</li></ul>")
+        assertEquals("<ul><li>Hello</li><li>World</li></ul>", output)
     }
 }
