@@ -20,6 +20,7 @@ dependencies {
 
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.spring.boot.starter.restclient)
+    testImplementation(libs.spring.boot.starter.resttestclient)
     testImplementation("org.assertj:assertj-core:3.27.3")
 }
 

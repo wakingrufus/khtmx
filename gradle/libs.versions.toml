@@ -1,6 +1,6 @@
 [versions]
-boot = "4.0.0-M3"
-spring = "7.0.0"
+boot = "4.1.2"
+spring = "7.0.10"
 
 [libraries]
 spring-bom = { module = "org.springframework:spring-framework-bom", version.ref = "spring" }
@@ -9,6 +9,7 @@ spring-test = { module = "org.springframework:spring-test", version.ref = "sprin
 spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure", version.ref = "boot" }
 spring-boot-starter-jetty = { module = "org.springframework.boot:spring-boot-starter-jetty", version.ref = "boot" }
 spring-boot-starter-restclient = { module = "org.springframework.boot:spring-boot-starter-restclient", version.ref = "boot" }
+spring-boot-starter-resttestclient = { module = "org.springframework.boot:spring-boot-resttestclient", version.ref = "boot"}
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "boot" }
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "boot" }
 spring-boot-web-server = { module = "org.springframework.boot:spring-boot-web-server", version.ref = "boot" }
