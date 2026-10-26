@@ -10,7 +10,7 @@ class HxTriggerTest {
         val actual = HxTriggerDsl().apply {
             poll(10.seconds)
         }()
-        assertEquals(actual(), "every 10s")
+        assertEquals("every 10s", actual())
     }
 
     @Test
@@ -20,7 +20,7 @@ class HxTriggerTest {
                 once()
             }
         }()
-        assertEquals(actual(), "click once")
+        assertEquals("click once", actual())
     }
 
     @Test
@@ -30,6 +30,6 @@ class HxTriggerTest {
                 root("#home")
             }
         }()
-        assertEquals(actual(), "intersect root:#home")
+        assertEquals("intersect root:#home", actual())
     }
 }

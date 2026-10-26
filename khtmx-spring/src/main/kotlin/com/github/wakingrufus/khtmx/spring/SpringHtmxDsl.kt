@@ -40,7 +40,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
         }
     }
 
-    @HtmxDsl
     fun page(path: String, template: BODY.() -> Unit = {}) {
         pages.add(HtmxPage(path).apply { initialLoad(template) })
     }
@@ -53,7 +52,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
     /**
      * use when declaring a GET route that takes no parameters
      */
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, RESP : Any> get(
         path: String,
         noinline binding: CONTROLLER.() -> RESP,
@@ -69,7 +67,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
             .also { addRoute(it) }
     }
 
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, RESP : Any> get(
         path: String,
         noinline binding: CONTROLLER.() -> RESP,
@@ -81,7 +78,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
     /**
      * use when declaring a GET route that takes no parameters, but uses security
      */
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, USER : Principal, RESP : Any> get(
         path: String,
         noinline binding: CONTROLLER.(USER?) -> RESP,
@@ -97,7 +93,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
             .also { addRoute(it) }
     }
 
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, USER : Principal, RESP : Any> get(
         path: String,
         noinline binding: CONTROLLER.(USER?) -> RESP,
@@ -106,7 +101,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
         return get(path, binding) { appendable, input -> renderer.invoke(appendable, input) }
     }
 
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, reified REQ : Record, RESP : Any> route(
         verb: HttpVerb,
         path: String,
@@ -116,7 +110,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
         return route(verb, path, binding) { appendable, input -> renderer.invoke(appendable, input) }
     }
 
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, reified REQ : Record, RESP : Any> route(
         verb: HttpVerb,
         path: String,
@@ -141,7 +134,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
             .also { addRoute(it) }
     }
 
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, reified REQ : Record, USER : Principal, RESP : Any> route(
         verb: HttpVerb,
         path: String,
@@ -151,7 +143,6 @@ open class SpringHtmxDsl(init: SpringHtmxDsl.() -> Unit) : BeanRegistrarDsl({}) 
         return route(verb, path, binding) { appendable, input -> renderer.invoke(appendable, input) }
     }
 
-    @HtmxDsl
     inline fun <reified CONTROLLER : Any, reified REQ : Record, USER : Principal, RESP : Any> route(
         verb: HttpVerb,
         path: String,

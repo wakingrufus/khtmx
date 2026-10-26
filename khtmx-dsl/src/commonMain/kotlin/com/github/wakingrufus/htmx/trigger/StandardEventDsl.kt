@@ -11,47 +11,38 @@ class StandardEventDsl(val name: String) {
     private val modifiers: MutableList<AttributeModifier> = mutableListOf()
     private var filter: String? = null
 
-    @HtmxDsl
     fun filter(filter: String) {
         this.filter = filter
     }
 
-    @HtmxDsl
     fun once() {
         modifiers.add(AttributeModifier("once"))
     }
 
-    @HtmxDsl
     fun changed() {
         modifiers.add(AttributeModifier("changed"))
     }
 
-    @HtmxDsl
     fun delay(duration: Duration) {
         modifiers.add(modifier("delay", duration.toHtmx()))
     }
 
-    @HtmxDsl
     fun throttle(duration: Duration) {
         modifiers.add(modifier("throttle", duration.toHtmx()))
     }
 
-    @HtmxDsl
     fun from(selector: String) {
         modifiers.add(modifier("from", selector))
     }
 
-    @HtmxDsl
     fun target(selector: String) {
         modifiers.add(modifier("target", selector))
     }
 
-    @HtmxDsl
     fun consume() {
         modifiers.add(modifier("consume"))
     }
 
-    @HtmxDsl
     fun queue(option: QueueOption) {
         modifiers.add(modifier("queue", option.stringValue))
     }
