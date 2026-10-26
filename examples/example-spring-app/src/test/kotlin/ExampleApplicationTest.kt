@@ -2,9 +2,10 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.resttestclient.TestRestTemplate
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.exchange
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.web.server.test.client.TestRestTemplate
-import org.springframework.boot.web.server.test.client.exchange
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -19,6 +20,7 @@ import java.util.UUID
         "logging.level.root = INFO"
     ]
 )
+@AutoConfigureTestRestTemplate
 class ExampleApplicationTest {
 
     private val log = KotlinLogging.logger {}

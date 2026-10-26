@@ -16,5 +16,6 @@ dependencies {
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.spring.boot.starter.web)
     testImplementation(libs.spring.boot.starter.restclient)
+    testImplementation(libs.spring.boot.starter.resttestclient)
     testImplementation(libs.spring.test)
 }
