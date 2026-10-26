@@ -3,7 +3,7 @@ import org.jreleaser.model.Active
 plugins {
     base
     id("jacoco-report-aggregation")
-    id("org.jreleaser") version ("1.20.0")
+    id("org.jreleaser") version ("1.26.0")
 }
 project.description = "A multiplatform kotlin DSL for HTMX"
 tasks.wrapper {
